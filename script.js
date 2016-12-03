@@ -14,8 +14,8 @@ $( document ).ready(function(){
         channel = channelLink[channelLink.length-1];
         if(response["stream"] == null) status = "Offline";
         else status=response.stream["game"] + " <b>:</b> " + response.stream.channel.status;
-        logo = (status!="Offline")?('<img src="'+response.stream.channel.logo+'" />'):"";
-        $('#main').append('<div class="'+cl+' ch"><div class="left">'+logo+'<a href="https://www.twitch.tv/'+channel+'">'+ channel + '</a></div><div class="right">'+ status +'</div></div>');
+        logo = (status!="Offline")?('<img src="'+response.stream.channel.logo+'" />'):('<img src="https://dummyimage.com/50x50/ecf0e7/5c5457.jpg&text=0x3F" />');
+        $('#main').append('<div class="'+cl+' ch"><div class="left">'+logo+'<a href="https://www.twitch.tv/'+channel+'"  target="_blank">'+ channel + '</a></div><div class="right"><div class="content">'+ status +'</div></div></div>');
         // if(status!="Offline") $('.ch').
       }
     });
