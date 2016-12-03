@@ -10,7 +10,9 @@ $( document ).ready(function(){
       success: function( response ) {
         if (response["stream"] == null) cl = "notLive";
         else cl = "live";
-        $('#main').append('<div class="'+cl+'" id="ch">'+ response["_links"].channel + " "+ response["stream"] +'</div>');
+        channelLink = response["_links"].channel.split("/");
+        channel = channelLink[channelLink.length-1];
+        $('#main').append('<div class="'+cl+' ch">'+ channel + " "+ response["stream"] +'</div>');
       }
     });
   }
