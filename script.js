@@ -12,7 +12,9 @@ $( document ).ready(function(){
         else cl = "live";
         channelLink = response["_links"].channel.split("/");
         channel = channelLink[channelLink.length-1];
-        $('#main').append('<div class="'+cl+' ch">'+ channel + " "+ response["stream"] +'</div>');
+        if(response["stream"] == null) status = "Offline";
+        else status=response.stream["game"] + " <b>:</b> " + response.stream.channel.status;
+        $('#main').append('<div class="'+cl+' ch"><a href="https://www.twitch.tv/'+channel+'">'+ channel + '</a><div class="right">'+ status +'</div></div>');
       }
     });
   }
